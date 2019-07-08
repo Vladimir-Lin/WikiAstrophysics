@@ -2,8 +2,7 @@
 
 $magicWords         =  [                       ] ;
 $magicWords['en']   =                            [
- 'TimeZoneLists'    => [ 0, 'TimeZoneLists'    ] ,
- 'TimeZoneSelector' => [ 0, 'TimeZoneSelector' ] ,
+ 'Astroputer'       => [ 0, 'Astroputer'    ] ,
 ]                                                ;
 
 ?>

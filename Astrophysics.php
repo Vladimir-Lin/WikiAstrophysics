@@ -1,11 +1,11 @@
 <?php
 
-if ( function_exists( 'wfLoadExtension' ) ) {
-  wfLoadExtension( 'TimeZones' );
-  $wgMessagesDirs['TimeZones'] = __DIR__ . '/i18n';
-  return true;
-} else {
-  die( 'This extension requires MediaWiki 1.25+' );
+if ( function_exists( 'wfLoadExtension' ) )           {
+  wfLoadExtension ( 'Astrophysics' )                  ;
+  $wgMessagesDirs['Astrophysics'] = __DIR__ . '/i18n' ;
+  return true                                         ;
+} else                                                {
+  die ( 'This extension requires MediaWiki 1.25+' )   ;
 }
 
 ?>

@@ -1,5 +1,5 @@
 {
     "require": {
-        "foxman/phpcios": ">=1.0.0"
+        "foxman/phpcios": ">=1.0.2"
     }
 }

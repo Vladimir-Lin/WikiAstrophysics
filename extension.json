@@ -1,26 +1,26 @@
 {
-  "name"             : "TimeZones" ,
+  "name"             : "Astrophysics" ,
   "author"           : "Vladimir Lin" ,
-  "url"              : "https://github.com/Vladimir-Lin/WikiTimeZones" ,
-  "description"      : "This extension provides some detail functions for Time Zones" ,
+  "url"              : "https://github.com/Vladimir-Lin/WikiAstrophysics" ,
+  "description"      : "This extension provides some utilities for Astrophysics" ,
   "version"          : "1.00" ,
   "license-name"     : "GPL-2.0+" ,
-  "type"             : "parserhook" ,
+  "type"             : "others" ,
   "manifest_version" : 1 ,
-  "AutoloadClasses"  : { "TimeZoneWiki": "TimeZone.php" },
-  "MessagesDirs"     : { "TimeZones": "i18n" },
-  "Hooks"            : { "ParserFirstCallInit": "TimeZoneWiki::setHooks"} ,
+  "AutoloadClasses"  : { "AstrophysicsWiki": "php/Astronomy.php" },
+  "MessagesDirs"     : { "Astrophysics": "i18n" },
+  "Hooks"            : { "ParserFirstCallInit": "AstrophysicsWiki::setHooks"} ,
   "ExtensionMessagesFiles": {
-    "TimeZonesExtensionMagic": "Magic.php"
+    "AstrophysicsExtensionMagic": "Magic.php"
   } ,
   "ResourceModules"  : {
-    "ext.TimeZones"  : {
+    "ext.Astrophysics"  : {
       "targets" : [ "desktop", "mobile" ],
-      "scripts" : [ "TimeZones.js" ]
+      "scripts" : [ "Astrophysics.js" ]
     }
   } ,
   "ResourceFileModulePaths": {
     "localBasePath" : "modules",
-    "remoteExtPath" : "TimeZones/modules"
+    "remoteExtPath" : "Astrophysics/modules"
   }
 }
