@@ -1,0 +1,21 @@
+#HtPasswordTitle
+{
+background-color: #44ffcc ;
+border-top: 1px gray dashed ;
+border-right: 1px gray dashed ;
+border-left: 1px gray dashed ;
+border-bottom: 1px gray dashed ;
+text-align: center ;
+font-size: 2em ;
+}
+
+.HtPasswordSection
+{
+background-color: #ff9944 ;
+border-top: 1px gray dashed ;
+border-right: 1px gray dashed ;
+border-left: 1px gray dashed ;
+border-bottom: 1px gray dashed ;
+text-align: center ;
+font-size: 0.7 cm ;
+}

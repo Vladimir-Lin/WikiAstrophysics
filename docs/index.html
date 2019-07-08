@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="HtPassword.css"
+      media="screen">
+    <title>HtPassword - a MediaWiki:Extension for accessing Apache
+      .htpasswd file</title>
+  </head>
+  <body>
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td id="HtPasswordTitle">HtPassword - a MediaWiki:Extension
+            for accessing Apache .htpasswd file</td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="top">Author : Vladimir Lin aka Foxman
+            &lt;lin.vladimir@gmail.com&gt;<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Project URL : <a
+              href="https://vladimir-lin.github.io/HtPassword/">https://vladimir-lin.github.io/HtPassword/</a>
+          </td>
+        </tr>
+        <tr>
+          <td>GIT : <a
+              href="https://github.com/Vladimir-Lin/HtPassword">https://github.com/Vladimir-Lin/HtPassword</a></td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">This extension is so simple that I have no
+            need to write a whole bunch documents.&nbsp; This page is
+            quite enough.<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td class="HtPasswordSection" valign="top">Download<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Goto your MediaWiki installation directory, such as
+            somewhere/MediaWiki/ , enter extensions directory, and then
+            give the following command:<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>git clone <a
+              href="https://github.com/Vladimir-Lin/HtPassword">https://github.com/Vladimir-Lin/HtPassword</a>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">This will create a directory named
+            "HtPassword"<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td class="HtPasswordSection" valign="top">Installation<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>In somewhere/MediaWiki/extensions/HtPassword directory,
+            find a file called config.php, open it in a code editor, and
+            modify:</td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>$wgHtPassword<span style=" color:#c0c0c0;"> </span>=<span
+              style=" color:#c0c0c0;"> </span>"D:\\Programs\\XAMPP\\apache\\bin\\htpasswd.exe"<span
+              style=" color:#c0c0c0;"> </span>;</td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>In somewhere/MediaWiki directory, find LocalSettings.php,
+            open it up, and add the following line:<br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>add wfLoadExtension (<span style=" color:#c0c0c0;"> </span>'HtPassword'<span
+              style=" color:#c0c0c0;"> </span>) ;<br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td class="HtPasswordSection">Usage<br>
+          </td>
+        </tr>
+        <tr>
+          <td><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Syntax: {{ #HtPassword: htpasswd_file | language | width |
+            Yes | canDelete }}</td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">Example :<br>
+          </td>
+        </tr>
+        <tr>
+          <td valign="top">{{ #HtPassword: /htpasswd | zh-TW | 25% | Yes
+            | Yes }}</td>
+        </tr>
+        <tr>
+          <td valign="top"><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

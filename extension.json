@@ -1,0 +1,26 @@
+{
+  "name"             : "TimeZones" ,
+  "author"           : "Vladimir Lin" ,
+  "url"              : "https://github.com/Vladimir-Lin/WikiTimeZones" ,
+  "description"      : "This extension provides some detail functions for Time Zones" ,
+  "version"          : "1.00" ,
+  "license-name"     : "GPL-2.0+" ,
+  "type"             : "parserhook" ,
+  "manifest_version" : 1 ,
+  "AutoloadClasses"  : { "TimeZoneWiki": "TimeZone.php" },
+  "MessagesDirs"     : { "TimeZones": "i18n" },
+  "Hooks"            : { "ParserFirstCallInit": "TimeZoneWiki::setHooks"} ,
+  "ExtensionMessagesFiles": {
+    "TimeZonesExtensionMagic": "Magic.php"
+  } ,
+  "ResourceModules"  : {
+    "ext.TimeZones"  : {
+      "targets" : [ "desktop", "mobile" ],
+      "scripts" : [ "TimeZones.js" ]
+    }
+  } ,
+  "ResourceFileModulePaths": {
+    "localBasePath" : "modules",
+    "remoteExtPath" : "TimeZones/modules"
+  }
+}
