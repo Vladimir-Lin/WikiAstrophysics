@@ -12,6 +12,18 @@ require_once dirname(__FILE__) . "/../Common/Common.php"                     ;
 class Earth
 {
 
+public static function EarthVelocity ( $Distance )
+{
+  $MU  = "132749350000000000000"       ;
+  $AUS = "149597870700"                ;
+  $DAU = gmp_mul  ( $AUS , 2         ) ;
+  $RAX = gmp_mul  ( $AUS , $Distance ) ;
+  $DAU = gmp_sub  ( $DAU , $Distance ) ;
+  $DAU = gmp_mul  ( $DAU , $MU       ) ;
+  $DAU = gmp_div  ( $DAU , $RAX      ) ;
+  return gmp_sqrt ( $DAU             ) ;
+}
+
 public static function Apsides ( $content , $argv )
 {
   ////////////////////////////////////////////////////////////////////////////
@@ -22,6 +34,9 @@ public static function Apsides ( $content , $argv )
   $AstroTables = $GLOBALS     [ "AstroTables"   ]                            ;
   $Helions     = $AstroTables [ "Earth-Helions" ]                            ;
   $Sidereal    = 31558150                                                    ;
+  $AU          = 149597870700                                                ;
+  $MU          = "132749350000000000000"                                     ;
+  $AUS         = "149597870700"                                              ;
   ////////////////////////////////////////////////////////////////////////////
   $DB          = new CiosDB              (                                 ) ;
   if                                     ( ! $DB -> Connect ( $CurrentDB ) ) {
@@ -34,12 +49,12 @@ public static function Apsides ( $content , $argv )
   ////////////////////////////////////////////////////////////////////////////
   $HR          = $TBODY -> addTr         (                                 ) ;
   $HD          = $HR    -> addTd         ( $content                        ) ;
-  $HD         -> AddPair                 ( "colspan" , "7"                 ) ;
+  $HD         -> AddPair                 ( "colspan" , "9"                 ) ;
   ////////////////////////////////////////////////////////////////////////////
   $TZSTR       = "Time Zone : {$TZS}"                                        ;
   $HR          = $TBODY -> addTr         (                                 ) ;
   $HD          = $HR    -> addTd         ( $TZSTR                          ) ;
-  $HD         -> AddPair                 ( "colspan" , "7"                 ) ;
+  $HD         -> AddPair                 ( "colspan" , "9"                 ) ;
   ////////////////////////////////////////////////////////////////////////////
   $HR          = $TBODY -> addTr         (                                 ) ;
   $HD          = $HR    -> addTd         ( "Year"                          ) ;
@@ -50,12 +65,16 @@ public static function Apsides ( $content , $argv )
   $HD         -> AddPair                 ( "align" , "center"              ) ;
   $HD          = $HR    -> addTd         ( "Sidereal error"                ) ;
   $HD         -> AddPair                 ( "align" , "center"              ) ;
+  $HD          = $HR    -> addTd         ( "Velocity"                      ) ;
+  $HD         -> AddPair                 ( "align" , "center"              ) ;
   $HD         -> AddPair                 ( "align" , "center"              ) ;
   $HD          = $HR    -> addTd         ( "Aphelion"                      ) ;
   $HD         -> AddPair                 ( "align" , "center"              ) ;
   $HD          = $HR    -> addTd         ( "Distance"                      ) ;
   $HD         -> AddPair                 ( "align" , "center"              ) ;
   $HD          = $HR    -> addTd         ( "Sidereal error"                ) ;
+  $HD         -> AddPair                 ( "align" , "center"              ) ;
+  $HD          = $HR    -> addTd         ( "Velocity"                      ) ;
   $HD         -> AddPair                 ( "align" , "center"              ) ;
   ////////////////////////////////////////////////////////////////////////////
   $QQ          = "select `year`,`perihelion`,`peridistance`,`aphelion`,`apdistance` from {$Helions} order by id asc ;" ;
@@ -73,6 +92,9 @@ public static function Apsides ( $content , $argv )
       $PeriDistance    = $rr [ 2 ]                                           ;
       $Aphelion        = $rr [ 3 ]                                           ;
       $ApDistance      = $rr [ 4 ]                                           ;
+      ////////////////////////////////////////////////////////////////////////
+      $VPERI           = self::EarthVelocity ( $PeriDistance )               ;
+      $VAPHD           = self::EarthVelocity ( $ApDistance   )               ;
       ////////////////////////////////////////////////////////////////////////
       $PERR            = ""                                                  ;
       $AERR            = ""                                                  ;
@@ -97,11 +119,15 @@ public static function Apsides ( $content , $argv )
       $HD   -> AddPair         ( "align" , "right"                         ) ;
       $HD    = $HR    -> addTd ( $PERR                                     ) ;
       $HD   -> AddPair         ( "align" , "right"                         ) ;
+      $HD    = $HR    -> addTd ( $VPERI                                    ) ;
+      $HD   -> AddPair         ( "align" , "right"                         ) ;
       $HD    = $HR    -> addTd ( $ADS                                      ) ;
       $HD   -> AddPair         ( "align" , "right"                         ) ;
       $HD    = $HR    -> addTd ( $ApDistance                               ) ;
       $HD   -> AddPair         ( "align" , "right"                         ) ;
       $HD    = $HR    -> addTd ( $AERR                                     ) ;
+      $HD   -> AddPair         ( "align" , "right"                         ) ;
+      $HD    = $HR    -> addTd ( $VAPHD                                    ) ;
       $HD   -> AddPair         ( "align" , "right"                         ) ;
       ////////////////////////////////////////////////////////////////////////
       $LPERI = $Perihelion                                                   ;
